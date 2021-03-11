@@ -34,12 +34,12 @@ public class Cociente {
 				private double d;
 				
 				/**
-				 * N√∫mero real a invertir. Se trata de un real positivo.
+				 * N˙mero real a invertir. Se trata de un real positivo.
 				 */
 				private double invertir;
 				
 				/**
-				 * Radicando entero de una ra√≠z. Se trata de un entero positivo.
+				 * Radicando entero de una raÌz. Se trata de un entero positivo.
 				 */
 				private int radicando;
 				
@@ -48,228 +48,390 @@ public class Cociente {
 				/**
 				 * Constructor por defecto (asigna valores nulos a los atributos).
 				 */
-				public Cociente() {}
+				public Cociente() {
+					a = 0;
+					b = 0;
+					c = 0.0;
+					d = 0.0;
+					invertir = 0.0;
+					radicando = 0;
+				}
 				
 				/**
 				 * Construye un objeto de clase Cociente con dos operandos enteros. 
-				 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+				 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 				 * Inicializa el resto de los atributos a 0.
 				 * 
 				 * @param a primer operando entero (dividendo). 
 				 * @param b segundo operando entero (divisor).
-				 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 				 */
-				public Cociente(int a, int b) throws IllegalArgumentException {}
+				public Cociente(int a, int b) throws IllegalArgumentException {
+					if (a < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (a == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.a = a;
+					if (b < 0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (b == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.b = b;
+					c = 0.0;
+					d = 0.0;
+					invertir = 0.0;
+					radicando = 0;
+				}
 				
 				/**
 				 * Construye un objeto de clase Producto con dos operandos reales.
-				 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+				 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 				 * Inicializa el resto de los atributos a 0.
 				 * 
 				 * @param c primer operando real (dividendo).
 				 * @param d segundo operando real (divisor).
-				 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 				 */
-				public Cociente(double c, double d) throws IllegalArgumentException {}
+				public Cociente(double c, double d) throws IllegalArgumentException {
+					a = 0;
+					b = 0;
+					if (c < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (c == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.c = c;
+					if (d < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (d == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.d = d;
+					invertir = 0.0;
+					radicando = 0;
+				}
 				
 				/**
 				 * Construye un objeto de clase Producto con tres operandos reales.
-				 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+				 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 				 * Inicializa el resto de los atributos a 0.
 				 * 
-				 * @param radicando radicando de la ra√≠z (entero).
-				 * @throws IllegalArgumentException saltar√° en caso de el  par√°metro de entrada sea nulo o negativo.
+				 * @param radicando radicando de la raÌz (entero).
+				 * @throws IllegalArgumentException saltar· en caso de el  par·metro de entrada sea nulo o negativo.
 				 */
-				public Cociente(int radicando) throws IllegalArgumentException {}
+				public Cociente(int radicando) throws IllegalArgumentException {
+					a = 0;
+					b = 0;
+					c = 0.0;
+					d = 0.0;
+					invertir = 0.0;
+					this.radicando = radicando;
+				}
 				
 				/**
 				 * Construye un objeto de clase Producto con dos operandos enteros, tres reales, una base y un exponente.
-				 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
-				 * Cuando la base o el exponente exceden las unidades (mayores que 9) se mostrar√° otro mensaje de error.
+				 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
+				 * Cuando la base o el exponente exceden las unidades (mayores que 9) se mostrar· otro mensaje de error.
 				 * Esto es porque potencias y/o bases del orden de las decenas implican una potencia demasiado grande para ser guardada.
 				 * 
 				 * @param a primer operando entero (dividendo). 
 				 * @param b segundo operando entero (divisor).
 				 * @param c primer operando real (dividendo).
 				 * @param d segundo operando real (divisor).
-				 * @param invertir n√∫mero real a invertir.
-				 * @param radicando radicando de la ra√≠z (entero). 
-				 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo. Tambien ser√° lanzada si la base o el exponente exceden el rango de las unidades.
+				 * @param invertir n˙mero real a invertir.
+				 * @param radicando radicando de la raÌz (entero). 
+				 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo. Tambien ser· lanzada si la base o el exponente exceden el rango de las unidades.
 				 */
-				public Cociente(int a, int b, double c, double d, double invertir, int radicando) throws IllegalArgumentException {}
+				public Cociente(int a, int b, double c, double d, double invertir, int radicando) throws IllegalArgumentException {
+					if (a < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (a == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.a = a;
+					if (b < 0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (b == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.b = b;
+					if (c < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (c == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.c = c;
+					if (d < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (d == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.d = d;
+					if (invertir < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (invertir == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.invertir = invertir;
+					if (radicando < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (radicando == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else if (radicando > 9)
+						throw new IllegalArgumentException("No se permite una base tan grande. Debe ser del orden de unidades.");
+					else
+						this.radicando = radicando;
+				}
 				
-				// M√âTODOS NO EST√ÅTICOS
+				// M…TODOS NO EST¡TICOS
 				
 				/**
-				 * Realiza la divisi√≥n de los dos operandos enteros.
-				 * En caso de que el resultado no sea entero, es decir, que el cociente no sea exacto (resto 0) se lanzar√° un mensaje de error.
+				 * Realiza la divisiÛn de los dos operandos enteros.
+				 * En caso de que el resultado no sea entero, es decir, que el cociente no sea exacto (resto 0) se lanzar· un mensaje de error.
 				 * 
-				 * @return resultado de la multiplicaci√≥n (entero).
+				 * @return resultado de la multiplicaciÛn (entero).
 				 */
-				public int cocienteEnteros() throws IllegalArgumentException{}
+				public int cocienteEnteros() throws IllegalArgumentException{ 
+					if (a % b != 0)
+						throw new IllegalArgumentException("Los operandos no dan una divisiÛn exacta");
+					else
+						return a / b; 
+				}
 				
 				/**
-				 * Realiza la multiplicaci√≥n de los dos operandos reales.
+				 * Realiza la multiplicaciÛn de los dos operandos reales.
 				 * 
-				 * @return resultado de la multiplicaci√≥n (real).
+				 * @return resultado de la multiplicaciÛn (real).
 				 */
-				public double cocienteReales() {}
+				public double cocienteReales() { return c / d; }
 				
 				/**
-				 * Realiza la multiplicaci√≥n de los tres operandos enteros.
+				 * Realiza la multiplicaciÛn de los tres operandos enteros.
 				 * 
-				 * @return resultado de la multiplicaci√≥n (real).
+				 * @return resultado de la multiplicaciÛn (real).
 				 */
-				public double inverso() {}
+				public double inverso() { return -invertir; }
 				
 				/**
-				 * Reliza la ra√≠z cuadrada del radicando.
+				 * Reliza la raÌz cuadrada del radicando.
 				 * 
-				 * @return resultado realizar la ra√≠z cuadrada (real) del radicando.
+				 * @return resultado realizar la raÌz cuadrada (real) del radicando.
 				 */
-				public double raiz() {}
+				public double raiz() { return Math.sqrt(radicando); }
 				
 				/**
 				 * Obtiene el primer operando entero.
 				 * 
 				 * @return primer operando (entero).
 				 */
-				public int getA() {}
+				public int getA() { return a; }
 				
 				/**
 				 * Obtiene el segundo operando entero.
 				 * 
 				 * @return segundo operando (entero).
 				 */
-				public int getB() {}
+				public int getB() { return b; }
 				
 				/**
 				 * Obtiene el primer operando (dividiendo) real.
 				 * 
 				 * @return dividendo (real).
 				 */
-				public double getC() {}
+				public double getC() { return c; }
 				
 				/**
 				 * Obtiene el segundo operando (divisor) real.
 				 * 
 				 * @return divisor (real).
 				 */
-				public double getD() {}
+				public double getD() { return d; }
 				
 				/**
-				 * Obtiene el n√∫mero real a invertir.
+				 * Obtiene el n˙mero real a invertir.
 				 * 
-				 * @return n√∫mero a invertir (real).
+				 * @return n˙mero a invertir (real).
 				 */
-				public double getInvertir() {}
+				public double getInvertir() { return invertir; }
 				
 				/**
 				 * Obtiene el radicando entero.
 				 * 
 				 * @return radicando (entero).
 				 */
-				public int getRadicando() {}
+				public int getRadicando() { return radicando; }
 				
 				/**
 				 *  Da un nuevo valor al primero operando entero.
-				 *  En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+				 *  En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 				 *  
 				 * @param a nuevo valor del primer operando (entero).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 				 */
-				public void setA(int a) throws IllegalArgumentException {}
+				public void setA(int a) throws IllegalArgumentException { 
+					if (a < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (a == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.a = a;
+				}
 				
 				/**
 				 * Da un nuevo valor al segundo operando entero.
-				 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+				 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 				 *  
 				 * @param b nuevo valor del segundo operando (entero).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 				 */
-				public void setB(int b) throws IllegalArgumentException {}
+				public void setB(int b) throws IllegalArgumentException { 
+					if (b < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (b == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.b = b;
+				}
 				
 				/**
 				 * Da un nuevo valor al primero operando real.
-				 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+				 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 				 *  
 				 * @param c nuevo valor del primer operando (real).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo negativo.
 				 */
-				public void setC(double c) throws IllegalArgumentException {}
+				public void setC(double c) throws IllegalArgumentException { 
+					if (c < 0.0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (c == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.c = c;
+				}
 				
 				/**
 				 * Da un nuevo valor al segundo operando real.
-				 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+				 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 				 *  
 				 * @param d nuevo valor del segundo operando (real).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo negativo.
 				 */
-				public void setD(double d) throws IllegalArgumentException {}
+				public void setD(double d) throws IllegalArgumentException { 
+					if (d < 0.0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (d == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.d = d;
+				}
 				
 				/**
-				 * Da un nuevo valor al n√∫mero real a invertir.
-				 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+				 * Da un nuevo valor al n˙mero real a invertir.
+				 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 				 *  
-				 * @param invertir nuevo valor del n√∫mero a invertir (real).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo negativo.
+				 * @param invertir nuevo valor del n˙mero a invertir (real).
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo negativo.
 				 */
-				public void setInvertir(double invertir) throws IllegalArgumentException {}
+				public void setInvertir(double invertir) throws IllegalArgumentException { 
+					if (invertir < 0.0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (invertir == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.invertir = invertir;
+				}
 				
 				/**
 				 *  Da un nuevo valor radicando entero.
-				 *  En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+				 *  En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 				 *  
 				 * @param radicando nuevo valor del radicando (entero).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 				 */
-				public void setRadicando(int radicando) throws IllegalArgumentException {}
+				public void setRadicando(int radicando) throws IllegalArgumentException { 
+					if (radicando < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (radicando == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					else
+						this.radicando = radicando;
+				}
 				
 				
 				
-				// M√âTODOS EST√ÅTICOS
+				// M…TODOS EST¡TICOS
 				
 				/**
-				 * Divisi√≥n de dos n√∫meros enteros.
-				 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
-				 * En caso de que el resultado no sea entero, es decir, que el cociente no sea exacto (resto 0) se lanzar√° otro mensaje de error.
+				 * DivisiÛn de dos n˙meros enteros.
+				 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
+				 * En caso de que el resultado no sea entero, es decir, que el cociente no sea exacto (resto 0) se lanzar· otro mensaje de error.
 				 * 
 				 * @param a primer operando (entero).
 				 * @param b segundo operando (entero).
-				 * @return retultado de la divisi√≥n (entero).
-				 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo. Tambi√©n en caso de que la divisi√≥n no sea exacta.
+				 * @return retultado de la divisiÛn (entero).
+				 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo. TambiÈn en caso de que la divisiÛn no sea exacta.
 				 */
-				public static int cociente(int a, int b) throws IllegalArgumentException {}
+				public static int cociente(int a, int b) throws IllegalArgumentException {
+					if (a < 0) 
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (a == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					if (b < 0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (b == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					if (a % b != 0)
+						throw new IllegalArgumentException("Los operandos introducidos no dan una divisiÛn exacta");
+					return a / b;
+				}
 				
 				
 				/**
-				 * Divisi√≥n de dos n√∫meros reales.
-				 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+				 * DivisiÛn de dos n˙meros reales.
+				 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 				 * 
 				 * @param a primer operando (real).
 				 * @param b segundo operando (real).
-				 * @return resultado de la divisi√≥n (real).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+				 * @return resultado de la divisiÛn (real).
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 				 */
-				public static double cociente(double a, double b) throws IllegalArgumentException {}
+				public static double cociente(double a, double b) throws IllegalArgumentException {
+					if (a < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (a == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					if (b < 0.0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (b == 0.0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					return a / b;
+				}
 				
 				
 				
 				/**
-				 * Invierte un n√∫mero real. No se aceptar√°n n√∫meros negativos o nulos (mostrar√° un mensaje de error).
+				 * Invierte un n˙mero real. No se aceptar·n n˙meros negativos o nulos (mostrar· un mensaje de error).
 				 * 		
-				 * @param a n√∫mero a invertir (real).
-				 * @return n√∫mero invertido (real).
-				 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+				 * @param a n˙mero a invertir (real).
+				 * @return n˙mero invertido (real).
+				 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 				 */
-				public static double inverso(int a) throws IllegalArgumentException {}
+				public static double inverso(int a) throws IllegalArgumentException {
+					if (a < 0)
+						throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+					else if (a == 0)
+						throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+					return -a;
+				}
 				
 				/**
-				 * Reliza la ra√≠z cuadrada del n√∫mero entero.
+				 * Reliza la raÌz cuadrada del n˙mero entero.
 				 * 		
 				 * @param a radicando entero.
-				 * @return resultado realizar la ra√≠z cuadrada (real).
+				 * @return resultado realizar la raÌz cuadrada (real).
 				 */
-				public static double raiz( int a ) {}
+				public static double raiz( int a ) { return Math.sqrt(a); }
 
 }
