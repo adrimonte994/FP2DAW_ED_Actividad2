@@ -14,9 +14,9 @@ public class Resta {
 	// ATRIBUTOS
 	
 			/**
-			 * variable acumuladora (entera) requerida en el m√©todo que realiza la resta con acumulaci√≥n.
+			 * variable acumuladora (entera) requerida en el mÈtodo que realiza la resta con acumulaciÛn.
 			 */
-			private static int acu;
+			private static int acu = 0;
 			
 			/**
 			 * Minuendo entero. Se trata de un entero positivo.
@@ -43,238 +43,408 @@ public class Resta {
 			 */
 			private double e;
 			
-			
-			
 			// CONSTRUCTORES
 			
 			/**
 			 * Constructor por defecto (asigna valores nulos a los atributos).
 			 */
-			public Resta() {}
+			public Resta() {
+				a = 0;
+				b = 0;
+				c = 0.0;
+				d = 0.0;
+				e = 0.0;
+			}
 			
 			/**
 			 * Construye un objeto de clase Resta con dos operandos enteros. 
-			 * En caso de introducirse par√°metros nulos negativos, se mostrar√° un mensaje de error.
+			 * En caso de introducirse par·metros nulos negativos, se mostrar· un mensaje de error.
 			 * Inicializa el resto de los atributos a 0.
 			 * 
 			 * @param a primer operando entero. 
 			 * @param b segundo operando entero.
-			 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 			 */
-			public Resta(int a, int b) throws IllegalArgumentException {}
+			public Resta(int a, int b) throws IllegalArgumentException {
+				if (a < 0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.a = a;
+				if (b < 0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (b == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.b = b;
+				c = 0.0;
+				d = 0.0;
+				e = 0.0;
+			}
 			
 			/**
 			 * Construye un objeto de clase Resta con dos operandos reales.
-			 * En caso de introducirse par√°metros negativos, se mostrar√° un mensaje de error.
+			 * En caso de introducirse par·metros negativos, se mostrar· un mensaje de error.
 			 * Inicializa el resto de los atributos a 0.
 			 * 
 			 * @param c primer operando real.
 			 * @param d segundo operando real.
-			 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 			 */
-			public Resta(double c, double d) throws IllegalArgumentException {}
+			public Resta(double c, double d) throws IllegalArgumentException {
+				a = 0;
+				b = 0;
+				if (c < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (c == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.c = c;
+				if (d < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (d == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.d = d;
+				e = 0.0;
+			}
 			
 			/**
 			 * Construye un objeto de clase Resta con tres operandos reales.
-			 * En caso de introducirse par√°metros negativos, se mostrar√° un mensaje de error.
+			 * En caso de introducirse par·metros negativos, se mostrar· un mensaje de error.
 			 * Inicializa el resto de los atributos a 0.
 			 * 
 			 * @param c primer operando real.
 			 * @param d segundo operando real.
 			 * @param e tercer operando real.
-			 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 			 */
-			public Resta(double c, double d, double e) throws IllegalArgumentException {}
+			public Resta(double c, double d, double e) throws IllegalArgumentException {
+				a = 0;
+				b = 0;
+				if (c < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (c == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.c = c;
+				if (d < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (d == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.d = d;
+				if (e < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (e == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.e = e;
+			}
 			
 			/**
 			 * Construye un objeto de clase Resta con dos operandos enteros y tres reales.
-			 * En caso de introducirse par√°metros negativos, se mostrar√° un mensaje de error.
+			 * En caso de introducirse par·metros negativos, se mostrar· un mensaje de error.
 			 * 
 			 * @param a primer operando entero. 
 			 * @param b segundo operando entero.
 			 * @param c primer operando real.
 			 * @param d segundo operando real.
 			 * @param e tercer operando real.
-			 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 			 */
-			public Resta(int a, int b, double c, double d, double e) throws IllegalArgumentException {}
+			public Resta(int a, int b, double c, double d, double e) throws IllegalArgumentException {
+				if (a < 0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.a = a;
+				if (b < 0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (b == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.b = b;
+				if (c < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (c == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.c = c;
+				if (d < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (d == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.d = d;
+				if (e < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (e == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.e = e;
+			}
 			
-			
-			
-			// M√âTODOS NO EST√ÅTICOS
+			// M…TODOS NO EST¡TICOS
 			
 			/**
 			 * Realiza la resta de los dos operandos enteros.
 			 * 
-			 * @return resultado de la sustracci√≥n (entero).
+			 * @return resultado de la sustracciÛn (entero).
 			 */
-			public int restaEnteros() {}
+			public int restaEnteros() { return a - b; }
 			
 			/**
 			 * Realiza la resta de dos de los operandos reales.
 			 * 
-			 * @return resultado de la sustracci√≥n (real).
+			 * @return resultado de la sustracciÛn (real).
 			 */
-			public double resta2Reales() {}
+			public double resta2Reales() { return c - d; }
 			
 			/**
 			 * Realiza la resta de los tres operandos enteros.
 			 * 
-			 * @return resultado de la sustracci√≥n (real).
+			 * @return resultado de la sustracciÛn (real).
 			 */
-			public double resta3Reales() {}
+			public double resta3Reales() { return c - d - e; }
 			
 			/**
-			 * Realiza la resta del n√∫mero acumulado de la llamada a esta funci√≥n con el primer operando entero.
+			 * Realiza la resta del n˙mero acumulado de la llamada a esta funciÛn con el primer operando entero.
 			 * 
-			 * @return resultado de la sustracci√≥n del acumulador (entero).
+			 * @return resultado de la sustracciÛn del acumulador (entero).
 			 */
-			public int restaAcu() {}
+			public int restaAcu() { 
+				acu = a - acu;
+				return acu; 
+			}
 			
 			/**
 			 * Obtiene el primer operando entero.
 			 * 
 			 * @return minuendo (entero).
 			 */
-			public int getA() {}
+			public int getA() { return a; }
 			
 			/**
 			 * Obtiene el segundo operando entero.
 			 * 
 			 * @return sustraendo (entero).
 			 */
-			public int getB() {}
+			public int getB() { return b; }
 			
 			/**
 			 * Obtiene el primer operando real.
 			 * 
 			 * @return minuendo (real).
 			 */
-			public double getC() {}
+			public double getC() { return c; }
 			
 			/**
 			 * Obtiene el segundo operando real.
 			 * 
 			 * @return primer sustraendo (real).
 			 */
-			public double getD() {}
+			public double getD() { return d; }
 			
 			/**
 			 * Obtiene el tercer operando real.
 			 * 
 			 * @return segundo sustraendo (real).
 			 */
-			public double getE() {}
+			public double getE() { return e; }
 			
 			/**
 			 * Da un nuevo valor al minuendo entero.
-			 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+			 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 			 *  
 			 * @param a nuevo valor del minuendo (entero).
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 			 */
-			public void setA(int a) throws IllegalArgumentException {}
+			public void setA(int a) throws IllegalArgumentException { 
+				if (a < 0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.a = a;
+			}
 			
 			/**
 			 * Da un nuevo valor al sustraendo entero.
-			 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+			 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 			 *  
 			 * @param b nuevo valor del sustraendo (entero).
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 			 */
-			public void setB(int b) throws IllegalArgumentException {}
+			public void setB(int b) throws IllegalArgumentException { 
+				if (b < 0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (b == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.b = b;
+			}
 			
 			/**
 			 * Da un nuevo valor al minuendo real.
-			 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+			 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 			 *  
 			 * @param c nuevo valor del minuendo (real).
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo negativo.
 			 */
-			public void setC(double c) throws IllegalArgumentException {}
+			public void setC(double c) throws IllegalArgumentException { 
+				if (c < 0.0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (c == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.c = c;
+			}
 			
 			/**
 			 * Da un nuevo valor al primer sustraendo real.
-			 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+			 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 			 *  
 			 * @param d nuevo valor del primer sustraendo (real).
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo negativo.
 			 */
-			public void setD(double d) throws IllegalArgumentException {}
+			public void setD(double d) throws IllegalArgumentException { 
+				if (d < 0.0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (d == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.d = d;
+			}
 			
 			/**
 			 * Da un nuevo valor al segundo sustraendo real.
-			 * En caso de introducirse un par√°metro negativo, se mostrar√° un mensaje de error.
+			 * En caso de introducirse un par·metro negativo, se mostrar· un mensaje de error.
 			 *  
 			 * @param e nuevo valor del segundo sustraendo (real).
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo negativo.
 			 */
-			public void setE(double e) throws IllegalArgumentException {}
+			public void setE(double e) throws IllegalArgumentException { 
+				if (e < 0.0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (e == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					this.e = e;
+			}
 			
-			
-			
-			// M√âTODOS EST√ÅTICOS
+			// M…TODOS EST¡TICOS
 			
 			/**
-			 * Sustracci√≥n de dos n√∫meros enteros.
-			 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+			 * SustracciÛn de dos n˙meros enteros.
+			 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 			 * 
 			 * @param a minuendo (entero).
 			 * @param b sustraendo (entero).
 			 * @return retultado de la resta (entero).
-			 * @throws IllegalArgumentException saltar√° en caso de que alg√∫n par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que alg˙n par·metro de entrada sea nulo o negativo.
 			 */
-			public static int resta(int a, int b) throws IllegalArgumentException {}
+			public static int resta(int a, int b) throws IllegalArgumentException {
+				if (a < 0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				if (b < 0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (b == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				return a - b;
+			}
 			
 			/**
-			 * Sustracci√≥n de dos n√∫meros reales.
-			 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+			 * SustracciÛn de dos n˙meros reales.
+			 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 			 * 
 			 * @param a minuendo (real).
 			 * @param b sustraendo (real).
 			 * @return resultado de la resta (real).
 			 */
-			public static double resta(double a, double b) throws IllegalArgumentException {}
+			public static double resta(double a, double b) throws IllegalArgumentException {
+				if (a < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				if (b < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (b == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				return a - b;
+			}
 			
 			/**
-			 * Sustracci√≥n de tres n√∫meros reales.
-			 * En caso de introducirse par√°metros nulos o negativos, se mostrar√° un mensaje de error.
+			 * SustracciÛn de tres n˙meros reales.
+			 * En caso de introducirse par·metros nulos o negativos, se mostrar· un mensaje de error.
 			 * 
 			 * @param a minuendo (real).
 			 * @param b primer sustraendo (real).
 			 * @param c segundo sustraendo (real).
 			 * @return resultado de la suma (real).
 			 */
-			public static double resta(double a, double b, double c) throws IllegalArgumentException {}
+			public static double resta(double a, double b, double c) throws IllegalArgumentException {
+				if (a < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				if (b < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (b == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				if (c < 0.0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (c == 0.0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				return a - b - c;
+			}
 			
 			/**
-			 * Se sustrae el sustraendo (el valor que se va acumulando tras cada llamada a la funci√≥n) al minuendo (par√°metro de entrada).
-			 * En caso de introducirse un par√°metro nulo o negativo, se mostrar√° un mensaje de error.
+			 * Se sustrae el sustraendo (el valor que se va acumulando tras cada llamada a la funciÛn) al minuendo (par·metro de entrada).
+			 * En caso de introducirse un par·metro nulo o negativo, se mostrar· un mensaje de error.
 			 * 
 			 * @param a minuendo (entero).
 			 * @return resultado de la resta (entero).
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 			 */
-			public static int resta(int a) throws IllegalArgumentException {}
+			public static int resta(int a) throws IllegalArgumentException {
+				if (a < 0) 
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (a == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				acu = a - acu;
+				return acu;
+			}
 			
 			/**
 			 * Devuelve el valor de la variable acumulada.
 			 * 
 			 * @return cantidad acumulada.
 			 */
-			public static int getAcu() {}
+			public static int getAcu() { return acu; }
 			
 			/**
-			 * Cambio de valor de la variable de acumulaci√≥n.
-			 * En caso de introducirse un par√°metro nulo o negativo, se mostrar√° un mensaje de error.
+			 * Cambio de valor de la variable de acumulaciÛn.
+			 * En caso de introducirse un par·metro nulo o negativo, se mostrar· un mensaje de error.
 			 * 
-			 * @param newAcu nuevo valor para la variable de acumulaci√≥n.
-			 * @throws IllegalArgumentException saltar√° en caso de que el par√°metro de entrada sea nulo o negativo.
+			 * @param newAcu nuevo valor para la variable de acumulaciÛn.
+			 * @throws IllegalArgumentException saltar· en caso de que el par·metro de entrada sea nulo o negativo.
 			 */
-			public static void setAcu(int newAcu) throws IllegalArgumentException {}
+			public static void setAcu(int newAcu) throws IllegalArgumentException { 
+				if (newAcu < 0)
+					throw new IllegalArgumentException("La calculadora no permite introducir n˙meros negativos");
+				else if (newAcu == 0)
+					throw new IllegalArgumentException("No se pueden introducir operandos nulos");
+				else
+					acu = newAcu; 
+			}
 			
 			/**
-			 * Reseteo de la variable de acumulaci√≥n a 0.
+			 * Reseteo de la variable de acumulaciÛn a 0.
 			 */
-			public static void resetAcu() {}
+			public static void resetAcu() { acu = 0; }
 }
