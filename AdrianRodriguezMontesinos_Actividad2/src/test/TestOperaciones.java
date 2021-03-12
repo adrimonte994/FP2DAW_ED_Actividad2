@@ -9,6 +9,10 @@ public class TestOperaciones {
 		System.out.println("El resultado de la suma es: " + s.sumaEnteros());
 		System.out.println("El resultado del producto es: " + p.productoEnteros());
 		
+		Resta r = new Resta(12, 5);
+		Cociente c = new Cociente(10,2);
+		System.out.println("El resultado de la resta es: " + r.restaEnteros());
+		System.out.println("El resultado del cociente es: " + c.cocienteEnteros());
 	}
 
 }
